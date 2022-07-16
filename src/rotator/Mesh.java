@@ -19,7 +19,7 @@ public class Mesh extends GraphicalObject {
 	
 	public void readFromFile(String filename) throws FileNotFoundException {
 		//Determine file type & set reader/writer accordingly
-		Pattern pattern = Pattern.compile(".ply");
+		Pattern pattern = Pattern.compile(".ply$");
 		Matcher matcher = pattern.matcher(filename);
 		boolean found = matcher.find();
 		if (found) {
@@ -27,7 +27,7 @@ public class Mesh extends GraphicalObject {
 			setReader(r);
 		}
 		else {
-			pattern = Pattern.compile(".obj");
+			pattern = Pattern.compile(".obj$");
 			matcher = pattern.matcher(filename);
 			found = matcher.find();
 			if (found) {
@@ -35,7 +35,7 @@ public class Mesh extends GraphicalObject {
 				setReader(r);
 			}
 			else {
-				pattern = Pattern.compile(".off");
+				pattern = Pattern.compile(".off$");
 				matcher = pattern.matcher(filename);
 				found = matcher.find();
 				if (found) {
